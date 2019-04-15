@@ -9,8 +9,9 @@ fi
 
 cat << EOF | mysql --user=$1 --password
 USE $2;
-CREATE VIEW $3_$4 as SELECT * FROM $4 WHERE DoctorName like '$3%';
-GRANT SELECT, INSERT ON $2.$3_$4 TO '$3'@'%';
+# CREATE VIEW $3_$4 as SELECT * FROM $4 WHERE DoctorName like '$3%';
+# CREATE VIEW $3_$4 as SELECT * FROM $4;
+GRANT SELECT, INSERT ON $2.$4 TO '$3'@'%';
 FLUSH PRIVILEGES;
 EOF
 
